@@ -1,0 +1,240 @@
+ /* --- Estilos Generales --- */
+ body {
+     background-color: #000000;
+     color: #e5e7eb;
+     /* Gris claro */
+     font-family: system-ui, -apple-system, sans-serif;
+     margin: 0;
+     padding: 40px 20px;
+     min-height: 100vh;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     box-sizing: border-box;
+ }
+
+ /* --- Header --- */
+ header {
+     width: 100%;
+     max-width: 800px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     margin-bottom: 50px;
+     text-align: center;
+ }
+
+ h1 {
+     font-size: 3rem;
+     font-weight: 800;
+     margin: 0 0 30px 0;
+     /* Efecto degradado en el texto */
+     background: linear-gradient(to right, #e5e7eb, #6b7280);
+     -webkit-background-clip: text;
+     background-clip: text;
+     color: transparent;
+     letter-spacing: -1px;
+ }
+
+ /* --- Avatar / Imagen --- */
+ .avatar-section {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     width: 100%;
+     gap: 20px;
+ }
+
+ #avatar-container {
+     width: 140px;
+     height: 140px;
+     border-radius: 50%;
+     border: 4px solid #1f2937;
+     /* Gris oscuro */
+     background-color: #111827;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     overflow: hidden;
+     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+     transition: all 0.3s ease;
+ }
+
+ #avatar-container img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     display: block;
+     /* Para quitar espacios extra */
+ }
+
+ .hidden {
+     display: none !important;
+ }
+
+ #placeholder-icon {
+     font-size: 2.5rem;
+ }
+
+ .separator {
+     width: 100%;
+     height: 1px;
+     background-color: #1f2937;
+     margin-top: 30px;
+ }
+
+ /* --- Banner de Soporte --- */
+ .support-banner {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     background-color: transparent;
+     padding: 20px;
+     max-width: 600px;
+     text-align: center;
+     margin: auto;
+     width: 100%;
+     box-sizing: border-box;
+     min-height: 80vh;
+     animation: fadeInSmooth 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+ }
+
+ @keyframes fadeInSmooth {
+     from { opacity: 0; transform: translateY(-15px); }
+     to { opacity: 1; transform: translateY(0); }
+ }
+
+ .fade-out-banner {
+     animation: fadeOutBanner 0.6s ease-in forwards;
+ }
+
+ @keyframes fadeOutBanner {
+     from { opacity: 1; transform: translateY(0); }
+     to { opacity: 0; transform: translateY(-15px); }
+ }
+
+ .fade-in-content {
+     animation: fadeInContent 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+ }
+
+ @keyframes fadeInContent {
+     from { opacity: 0; transform: translateY(20px); }
+     to { opacity: 1; transform: translateY(0); }
+ }
+
+ .support-icon {
+     font-size: 5rem;
+     margin-bottom: 20px;
+     color: #ffffff;
+ }
+
+ .support-banner h2 {
+     font-size: 2.5rem;
+     margin-bottom: 15px;
+     color: #ffffff;
+     margin-top: 0;
+ }
+
+ .support-banner p {
+     color: #9ca3af;
+     font-size: 1.2rem;
+     margin-bottom: 40px;
+     line-height: 1.6;
+ }
+
+ #view-old-jokes-btn {
+     background-color: #ffffff;
+     color: #000000;
+     border: 2px solid #ffffff;
+     padding: 15px 35px;
+     border-radius: 50px;
+     font-size: 1.1rem;
+     font-weight: 700;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     font-family: inherit;
+     display: flex;
+     align-items: center;
+     gap: 12px;
+ }
+
+ #view-old-jokes-btn:hover {
+     background-color: #000000;
+     color: #ffffff;
+     border-color: #ffffff;
+     transform: scale(1.05);
+ }
+
+ /* --- Grilla de Chistes --- */
+ #jokes-container {
+     width: 100%;
+     max-width: 1200px;
+     display: grid;
+     grid-template-columns: 1fr;
+     /* Móvil: 1 columna */
+     gap: 24px;
+ }
+
+ /* Media Queries para Tablets y PC */
+ @media (min-width: 768px) {
+     #jokes-container {
+         grid-template-columns: repeat(2, 1fr);
+         /* Tablet: 2 columnas */
+     }
+
+     h1 {
+         font-size: 4rem;
+     }
+ }
+
+ @media (min-width: 1024px) {
+     #jokes-container {
+         grid-template-columns: repeat(3, 1fr);
+         /* PC: 3 columnas */
+     }
+ }
+
+ /* --- Tarjeta de Chiste --- */
+ .joke-card {
+     background-color: #030712;
+     /* Casi negro */
+     border: 1px solid #1f2937;
+     /* Borde gris oscuro */
+     padding: 24px;
+     border-radius: 12px;
+     position: relative;
+     transition: all 0.3s ease;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+ }
+
+ .joke-card:hover {
+     box-shadow: 0 0 15px rgba(100, 100, 100, 0.3);
+     border-color: #9ca3af;
+ }
+
+ .joke-number {
+     position: absolute;
+     top: 10px;
+     right: 15px;
+     color: #1f2937;
+     font-size: 0.8rem;
+     font-family: monospace;
+     font-weight: bold;
+ }
+
+ .joke-card:hover .joke-number {
+     color: #4b5563;
+ }
+
+ .joke-text {
+     color: #d1d5db;
+     font-size: 1.125rem;
+     line-height: 1.6;
+     font-weight: 500;
+     white-space: pre-line;
+     /* Mantiene los saltos de línea */
+     margin: 0;
+ }
